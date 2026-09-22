@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { FiChevronLeft, FiChevronRight, FiCheck } from "react-icons/fi";
-import { bookedDates } from "@/data/bookedDates";
 
 function getDaysInMonth(year: number, month: number) {
   return new Date(year, month + 1, 0).getDate();
@@ -17,7 +16,7 @@ function formatDateISO(year: number, month: number, day: number) {
   return `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 }
 
-export default function Calendar() {
+export default function Calendar({ bookedDates }: { bookedDates: string[] }) {
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const year = currentDate.getFullYear();

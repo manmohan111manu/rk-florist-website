@@ -1,12 +1,11 @@
-import { eventPackages } from "@/data/events";
 import EventCard from "@/components/EventCard";
 import Calendar from "@/components/Calendar";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
+import { getBookedDates, getEventPackages } from "@/lib/queries";
 
-const categories = ["All", "Wedding", "Birthday", "Anniversary"] as const;
-
-export default function EventsPage() {
+export default async function EventsPage() {
+  const [eventPackages, bookedDates] = await Promise.all([getEventPackages(), getBookedDates()]);
   const weddings = eventPackages.filter((e) => e.category === "Wedding");
   const birthdays = eventPackages.filter((e) => e.category === "Birthday");
   const anniversaries = eventPackages.filter((e) => e.category === "Anniversary");
@@ -93,7 +92,7 @@ export default function EventsPage() {
                 Book a Date <FiArrowRight className="w-4 h-4" />
               </Link>
             </div>
-            <Calendar />
+            <Calendar bookedDates={bookedDates} />
           </div>
         </section>
       </div>

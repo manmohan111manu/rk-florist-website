@@ -3,10 +3,9 @@
 import Link from "next/link";
 import { FiX, FiMinus, FiPlus, FiTrash2, FiCreditCard, FiTruck } from "react-icons/fi";
 import { useCart } from "@/lib/store";
-import { products } from "@/data/products";
 
 export default function CartDrawer({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
-  const { items, removeItem, updateQuantity, clearCart, totalPrice } = useCart();
+  const { items, removeItem, updateQuantity, clearCart, totalPrice, products } = useCart();
 
   if (!isOpen) return null;
 

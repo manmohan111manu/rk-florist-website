@@ -38,6 +38,7 @@ export default function EventForm({ preFilledDate }: { preFilledDate?: string })
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   function handleChange(field: string, value: string) {
@@ -45,7 +46,7 @@ export default function EventForm({ preFilledDate }: { preFilledDate?: string })
     setErrors((prev) => ({ ...prev, [field]: "" }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const newErrors: Record<string, string> = {};
     if (!formData.name.trim()) newErrors.name = "Name is required";
@@ -63,9 +64,25 @@ export default function EventForm({ preFilledDate }: { preFilledDate?: string })
       return;
     }
 
-    console.log("Event Inquiry:", formData);
-    setSubmitted(true);
-    toast.success("Quotation request submitted! Our team will get back to you within 24 hours.");
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/quotes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        toast.error(data.error || "Could not submit your request. Please try again.");
+        return;
+      }
+      setSubmitted(true);
+      toast.success("Quotation request submitted! Our team will get back to you within 24 hours.");
+    } catch {
+      toast.error("Could not submit your request. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -156,8 +173,8 @@ export default function EventForm({ preFilledDate }: { preFilledDate?: string })
         <textarea value={formData.message} onChange={(e) => handleChange("message", e.target.value)} rows={4} className="w-full px-4 py-3 rounded-xl border border-leaf-200 text-leaf-900 focus:outline-none focus:ring-2 focus:ring-brand-500 resize-none" placeholder="Tell us more about your vision..." />
       </div>
 
-      <button type="submit" className="w-full py-3.5 px-6 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors flex items-center justify-center gap-2 text-lg">
-        <FiCheck className="w-5 h-5" /> Request Quotation
+      <button type="submit" disabled={submitting} className="w-full py-3.5 px-6 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors flex items-center justify-center gap-2 text-lg disabled:opacity-60">
+        <FiCheck className="w-5 h-5" /> {submitting ? "Sending..." : "Request Quotation"}
       </button>
     </form>
   );

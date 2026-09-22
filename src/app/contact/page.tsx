@@ -8,6 +8,7 @@ export default function ContactPage() {
   const toast = useToast();
   const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   function handleChange(field: string, value: string) {
@@ -15,7 +16,7 @@ export default function ContactPage() {
     setErrors((prev) => ({ ...prev, [field]: "" }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const newErrors: Record<string, string> = {};
     if (!form.name.trim()) newErrors.name = "Name is required";
@@ -29,8 +30,25 @@ export default function ContactPage() {
       return;
     }
 
-    setSubmitted(true);
-    toast.success("Message sent! We'll reply within 24 hours.");
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        toast.error(data.error || "Could not send your message. Please try again.");
+        return;
+      }
+      setSubmitted(true);
+      toast.success("Message sent! We'll reply within 24 hours.");
+    } catch {
+      toast.error("Could not send your message. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -178,9 +196,10 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="w-full py-4 px-6 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-all duration-300 hover:scale-[1.01] flex items-center justify-center gap-2 text-lg"
+                  disabled={submitting}
+                  className="w-full py-4 px-6 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-all duration-300 hover:scale-[1.01] flex items-center justify-center gap-2 text-lg disabled:opacity-60"
                 >
-                  <FiSend className="w-5 h-5" /> Send Message
+                  <FiSend className="w-5 h-5" /> {submitting ? "Sending..." : "Send Message"}
                 </button>
               </form>
             )}

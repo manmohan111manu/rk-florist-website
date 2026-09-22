@@ -5,6 +5,7 @@ import { CartProvider } from "@/lib/store";
 import { ToastProvider } from "@/components/Toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { getProducts } from "@/lib/queries";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -32,11 +33,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const products = await getProducts();
   return (
     <html lang="en">
       <body className={`antialiased ${playfair.variable} ${inter.variable}`}>
-        <CartProvider>
+        <CartProvider products={products}>
           <ToastProvider>
             <div className="min-h-screen flex flex-col">
               <Header />

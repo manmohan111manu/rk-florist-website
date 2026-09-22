@@ -3,12 +3,11 @@
 import Link from "next/link";
 import { FiMinus, FiPlus, FiTrash2, FiShoppingBag, FiArrowLeft, FiCreditCard, FiTruck } from "react-icons/fi";
 import { useCart } from "@/lib/store";
-import { products } from "@/data/products";
 import { useState } from "react";
 import { useToast } from "@/components/Toast";
 
 export default function CartPage() {
-  const { items, removeItem, updateQuantity, clearCart, totalPrice } = useCart();
+  const { items, removeItem, updateQuantity, clearCart, totalPrice, products } = useCart();
   const toast = useToast();
   const [ordered, setOrdered] = useState(false);
 
@@ -17,10 +16,32 @@ export default function CartPage() {
     product: products.find((p) => p.id === item.productId)!,
   }));
 
-  function handleCheckout() {
-    clearCart();
-    setOrdered(true);
-    toast.success("Order placed! Thank you for shopping with R K Florist 🌸");
+  async function handleCheckout() {
+    try {
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items: cartItems.map((item) => ({
+            productId: item.productId,
+            name: item.product?.name,
+            quantity: item.quantity,
+            price: item.product?.price,
+          })),
+          total: totalPrice,
+        }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        toast.error(data.error || "Could not place your order. Please try again.");
+        return;
+      }
+      clearCart();
+      setOrdered(true);
+      toast.success("Order placed! Thank you for shopping with R K Florist 🌸");
+    } catch {
+      toast.error("Could not place your order. Please try again.");
+    }
   }
 
   if (ordered) {

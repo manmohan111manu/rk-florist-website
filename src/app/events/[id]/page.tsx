@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { FiArrowLeft, FiCheck, FiClock, FiCalendar, FiArrowRight } from "react-icons/fi";
-import { eventPackages } from "@/data/events";
+import { getEventPackages } from "@/lib/queries";
 
-export default function EventDetailPage({ params }: { params: { id: string } }) {
+export default async function EventDetailPage({ params }: { params: { id: string } }) {
+  const eventPackages = await getEventPackages();
   const event = eventPackages.find((e) => e.id === params.id);
   if (!event) notFound();
 

@@ -2,7 +2,6 @@
 
 import { createContext, useContext, useState, useCallback, ReactNode } from "react";
 import type { Product } from "@/data/products";
-import { products } from "@/data/products";
 
 interface CartItem {
   productId: string;
@@ -10,6 +9,7 @@ interface CartItem {
 }
 
 interface CartContextValue {
+  products: Product[];
   items: CartItem[];
   addItem: (productId: string) => void;
   removeItem: (productId: string) => void;
@@ -21,7 +21,7 @@ interface CartContextValue {
 
 const CartContext = createContext<CartContextValue | undefined>(undefined);
 
-export function CartProvider({ children }: { children: ReactNode }) {
+export function CartProvider({ children, products }: { children: ReactNode; products: Product[] }) {
   const [items, setItems] = useState<CartItem[]>([]);
 
   const addItem = useCallback((productId: string) => {
@@ -60,7 +60,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   return (
     <CartContext.Provider
-      value={{ items, addItem, removeItem, updateQuantity, clearCart, totalCount, totalPrice }}
+      value={{ products, items, addItem, removeItem, updateQuantity, clearCart, totalCount, totalPrice }}
     >
       {children}
     </CartContext.Provider>
@@ -74,7 +74,7 @@ export function useCart() {
 }
 
 export function getCartItemsWithDetails() {
-  const { items } = useCart();
+  const { items, products } = useCart();
   return items.map((item) => {
     const product = products.find((p) => p.id === item.productId) as Product;
     return {

@@ -3,27 +3,32 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { FiArrowLeft, FiPlus, FiMinus, FiStar, FiTruck, FiShield, FiRefreshCw } from "react-icons/fi";
-import { products } from "@/data/products";
 import { useCart } from "@/lib/store";
 import { useState } from "react";
 import { useToast } from "@/components/Toast";
 
 export default function ProductDetailPage({ params }: { params: { id: string } }) {
+  const { addItem, items, products } = useCart();
   const product = products.find((p) => p.id === params.id);
-  if (!product) notFound();
+  if (!product) {
+    notFound();
+    return null;
+  }
 
-  const { addItem, items } = useCart();
   const toast = useToast();
   const [qty, setQty] = useState(1);
+  const productId = product.id;
+  const productName = product.name;
+  const productCategory = product.category;
 
-  const cartItem = items.find((i) => i.productId === product.id);
+  const cartItem = items.find((i) => i.productId === productId);
   const related = products
-    .filter((p) => p.category === product.category && p.id !== product.id)
+    .filter((p) => p.category === productCategory && p.id !== productId)
     .slice(0, 3);
 
   function handleAddToCart() {
-    for (let i = 0; i < qty; i++) addItem(product.id);
-    toast.success(`${qty} × ${product.name} added to cart!`);
+    for (let i = 0; i < qty; i++) addItem(productId);
+    toast.success(`${qty} × ${productName} added to cart!`);
   }
 
   return (

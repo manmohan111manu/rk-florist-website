@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { FiArrowRight, FiTruck, FiCalendar, FiStar, FiPhone, FiInstagram } from "react-icons/fi";
-import { products } from "@/data/products";
-import { eventPackages } from "@/data/events";
-import { galleryItems } from "@/data/gallery";
 import ProductCard from "@/components/ProductCard";
 import EventCard from "@/components/EventCard";
+import { getProducts, getEventPackages, getGalleryItems } from "@/lib/queries";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [products, eventPackages, galleryItems] = await Promise.all([
+    getProducts(),
+    getEventPackages(),
+    getGalleryItems(),
+  ]);
   const featuredProducts = products.filter((p) => p.bestseller).slice(0, 3);
   const featuredEvents = eventPackages.filter((e) => e.popular).slice(0, 3);
   const featuredGallery = galleryItems.slice(0, 6);
