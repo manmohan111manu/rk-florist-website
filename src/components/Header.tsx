@@ -27,11 +27,13 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" onClick={closeMenu} className="flex items-center gap-2 group">
-            <span className="w-9 h-9 rounded-full bg-leaf-600 flex items-center justify-center text-white group-hover:bg-brand-600 transition-colors duration-300">
-              <span className="text-lg font-bold">R</span>
-            </span>
+            <img
+              src="/images/rk-florist-logo.svg"
+              alt="RK Florist logo"
+              className="w-10 h-10 rounded-full object-cover ring-2 ring-leaf-200 group-hover:ring-brand-300 transition-all duration-300"
+            />
             <span className="font-serif text-xl text-leaf-900 group-hover:text-brand-600 transition-colors duration-300">
-              R K Florist
+              RK Florist
             </span>
           </Link>
 

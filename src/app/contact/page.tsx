@@ -72,10 +72,10 @@ export default function ContactPage() {
               <h3 className="font-serif text-xl text-leaf-900 mb-5">Visit Our Store</h3>
               <div className="space-y-4">
                 {[
-                  { icon: FiMapPin, label: "Address", value: "123 Rose Garden Road,\nFlower Market Area,\nHyderabad, Telangana 500001" },
-                  { icon: FiPhone, label: "Phone", value: "+91 98765 43210" },
-                  { icon: FiMail, label: "Email", value: "hello@rkflorist.com" },
-                  { icon: FiClock, label: "Hours", value: "Mon–Sat: 8:00 AM – 8:00 PM\nSunday: 9:00 AM – 6:00 PM" },
+                  { icon: FiMapPin, label: "Address", value: "Jhouta Niwas,\nJiwanu Colony, Panthagati,\nShimla-171009, Himachal Pradesh" },
+                  { icon: FiPhone, label: "Phone", value: "+91 93174 28466" },
+                  { icon: FiMail, label: "Instagram", value: "@rkflorist77" },
+                  { icon: FiClock, label: "Service", value: "Flower delivery and gift arrangements\nfor Shimla and nearby areas" },
                 ].map((item) => (
                   <div key={item.label} className="flex items-start gap-3">
                     <div className="w-9 h-9 rounded-xl bg-leaf-50 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -94,9 +94,9 @@ export default function ContactPage() {
             <div className="bg-leaf-100 rounded-2xl overflow-hidden aspect-video flex items-center justify-center border border-leaf-200">
               <div className="text-center text-leaf-500">
                 <FiMapPin className="w-8 h-8 mx-auto mb-2" />
-                <p className="text-sm font-medium">Hyderabad Flower Market</p>
+                <p className="text-sm font-medium">Panthagati, Shimla</p>
                 <a
-                  href="https://maps.google.com"
+                  href="https://www.google.com/maps/search/Jhouta+Niwas,+Jiwanu+Colony,+Panthagati,+Shimla-171009,+Himachal+Pradesh"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs text-brand-600 hover:text-brand-700 mt-1 inline-block"

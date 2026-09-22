@@ -155,7 +155,7 @@ export default function CartPage() {
                 </p>
 
                 <div className="mt-4 p-3 bg-green-50 rounded-xl border border-green-200 text-xs text-green-700 text-center">
-                  🌿 Order before 2 PM for same-day delivery in Hyderabad
+                  🌿 Order for same-day flower delivery across Shimla
                 </div>
               </div>
             </div>

@@ -8,25 +8,23 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <span className="w-9 h-9 rounded-full bg-leaf-600 flex items-center justify-center text-white">
-                <span className="text-lg font-bold">R</span>
-              </span>
-              <span className="font-serif text-xl">R K Florist</span>
+              <img src="/images/rk-florist-logo.svg" alt="RK Florist logo" className="w-9 h-9 rounded-full object-cover ring-2 ring-white/10" />
+              <span className="font-serif text-xl">RK Florist</span>
             </div>
             <p className="text-leaf-200 text-sm leading-relaxed max-w-xs">
-              Bringing joy through flowers and unforgettable celebrations. From everyday bouquets to dream weddings, we craft moments that last.
+              Flower arrangements, bouquets, gifting, and event styling for special moments across Shimla and beyond.
             </p>
             <div className="flex gap-3 mt-5">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-600 transition-colors duration-300">
+              <a href="https://instagram.com/rkflorist77" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-600 transition-colors duration-300">
                 <FiInstagram className="w-4 h-4" />
               </a>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-600 transition-colors duration-300">
                 <FiFacebook className="w-4 h-4" />
               </a>
-              <a href="mailto:hello@rkflorist.com" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-600 transition-colors duration-300">
+              <a href="https://instagram.com/rkflorist77" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-600 transition-colors duration-300">
                 <FiMail className="w-4 h-4" />
               </a>
-              <a href="tel:+919876543210" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-600 transition-colors duration-300">
+              <a href="tel:+919317428466" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-600 transition-colors duration-300">
                 <FiPhone className="w-4 h-4" />
               </a>
             </div>
@@ -46,25 +44,25 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-leaf-200">
               <li className="flex items-start gap-3">
                 <FiMapPin className="w-4 h-4 mt-0.5 text-brand-300 flex-shrink-0" />
-                <span>123 Rose Garden Road<br />Flower Market Area<br />Hyderabad, Telangana 500001</span>
+                <span>Jhouta Niwas,<br />Jiwanu Colony, Panthagati,<br />Shimla-171009, Himachal Pradesh</span>
               </li>
               <li className="flex items-center gap-3">
                 <FiPhone className="w-4 h-4 text-brand-300 flex-shrink-0" />
-                <span>+91 98765 43210</span>
+                <span>+91 93174 28466</span>
               </li>
               <li className="flex items-center gap-3">
-                <FiMail className="w-4 h-4 text-brand-300 flex-shrink-0" />
-                <span>hello@rkflorist.com</span>
+                <FiInstagram className="w-4 h-4 text-brand-300 flex-shrink-0" />
+                <span>@rkflorist77</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="w-4 h-4 mt-0.5 text-brand-300 flex-shrink-0">◷</span>
-                <span>Mon–Sat: 8:00 AM – 8:00 PM<br />Sunday: 9:00 AM – 6:00 PM</span>
+                <span>Open for flower delivery and gifting<br />across Shimla</span>
               </li>
             </ul>
           </div>
         </div>
         <div className="border-t border-white/10 mt-10 pt-6 text-center text-xs text-leaf-300">
-          © 2025 R K Florist & Event Planning. All rights reserved.
+          © 2025 RK Florist. All rights reserved.
         </div>
       </div>
     </footer>

@@ -21,14 +21,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rkflorist.com"),
-  title: "R K Florist & Event Planning — Flowers, Events, Celebrations",
-  description: "R K Florist: fresh bouquets, plants, and gifts for same-day UPI delivery. Plan weddings, birthdays, and anniversaries with our floral experts. View our gallery and book dates.",
-  keywords: "florist, flowers, bouquets, event planning, wedding decoration, birthday, anniversary, UPI delivery, Hyderabad",
+  title: "RK Florist Shimla — Bouquets, Gifts & Floral Styling",
+  description: "RK Florist in Panthagati, Shimla offers fresh flowers, floral gifting, bouquets, and event styling for every celebration.",
+  keywords: "RK Florist, florist in Shimla, flowers in Panthagati, bouquets, wedding flowers, gifts, Shimla",
   openGraph: {
-    title: "R K Florist & Event Planning",
-    description: "Fresh flowers, beautiful events, and same-day delivery.",
+    title: "RK Florist Shimla",
+    description: "Fresh flowers, gifting and floral styling in Shimla.",
     url: "https://rkflorist.com",
-    siteName: "R K Florist",
+    siteName: "RK Florist",
     images: [{ url: "/og-cover.jpg", width: 1200, height: 630 }],
   },
 };

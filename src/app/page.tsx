@@ -31,7 +31,7 @@ export default async function HomePage() {
           <div className="max-w-2xl">
             <span className="inline-flex items-center gap-2 text-brand-300 text-sm font-semibold uppercase tracking-widest mb-5">
               <span className="w-8 h-px bg-brand-300" />
-              Hyderabad&apos;s Premier Florist
+              Shimla&apos;s Premier Florist
             </span>
             <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl text-white leading-tight mb-6">
               Blooms That{" "}
@@ -39,9 +39,8 @@ export default async function HomePage() {
               From the Heart
             </h1>
             <p className="text-leaf-100 text-lg sm:text-xl leading-relaxed mb-10 max-w-xl">
-              Fresh flowers, curated bouquets, and breathtaking event
-              decorations — crafted with love, delivered with joy. Same-day UPI
-              delivery across Hyderabad.
+              Fresh flowers, curated bouquets, and beautiful floral styling for
+              birthdays, weddings, anniversaries, and gifting moments across Shimla.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -227,8 +226,8 @@ export default async function HomePage() {
           <FiInstagram className="w-12 h-12 text-brand-300 mx-auto mb-6" />
           <h2 className="font-serif text-3xl sm:text-4xl text-white mb-4">Follow Our Floral Journey</h2>
           <p className="text-leaf-200 max-w-md mx-auto mb-8">Stay inspired with daily floral arrangements, behind-the-scenes setups, and exclusive offers on Instagram.</p>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-leaf-900 font-semibold rounded-2xl hover:bg-brand-50 transition-colors">
-            <FiInstagram className="w-5 h-5" /> @rkflorist
+          <a href="https://instagram.com/rkflorist77" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-leaf-900 font-semibold rounded-2xl hover:bg-brand-50 transition-colors">
+            <FiInstagram className="w-5 h-5" /> @rkflorist77
           </a>
         </div>
       </section>

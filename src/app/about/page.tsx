@@ -18,7 +18,7 @@ export default function AboutPage() {
             <span className="text-brand-300 italic">Pure Love for Flowers.</span>
           </h1>
           <p className="text-leaf-100 text-lg max-w-2xl mx-auto leading-relaxed">
-            For over a decade, R K Florist has been Hyderabad&apos;s trusted partner for fresh flowers, bespoke bouquets, and unforgettable event experiences.
+            RK Florist has been a trusted name in Shimla for fresh flowers, bespoke bouquets, and memorable floral styling for life&apos;s most special moments.
           </p>
         </div>
       </section>
@@ -31,13 +31,13 @@ export default function AboutPage() {
             <h2 className="font-serif text-4xl text-leaf-900 mt-2 mb-6">Born from a Love of Nature</h2>
             <div className="space-y-4 text-leaf-700 leading-relaxed">
               <p>
-                R K Florist was founded in 2012 by Ramesh Kumar, a passionate botanist who believed that flowers have the power to transform moments into memories. Starting from a small stall in Hyderabad&apos;s Flower Market, we have grown into one of the city&apos;s most beloved florists.
+                RK Florist brings together fresh blooms, thoughtful gifting, and elegant floral design for every occasion in Shimla. From intimate gestures to grand celebrations, we help create moments that feel personal and unforgettable.
               </p>
               <p>
-                Today, our team of 25+ dedicated floral designers crafts thousands of bouquets and decorates hundreds of events every year. From corporate gatherings to intimate weddings, we bring creativity, passion, and the finest flowers to every project.
+                Our team curates bouquets, garlands, decor accents, and celebration arrangements with care and attention to detail. Whether it&apos;s a birthday surprise, anniversary, wedding, or festive gifting, we create arrangements that reflect the feeling behind the moment.
               </p>
               <p>
-                Our flowers are sourced directly from farms in Bengaluru and Pune, ensuring you always receive the freshest blooms at the fairest prices.
+                We work closely with our customers to deliver flowers that are fresh, beautifully arranged, and perfectly suited to the occasion.
               </p>
             </div>
           </div>
